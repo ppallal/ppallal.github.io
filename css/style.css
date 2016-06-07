@@ -3,6 +3,8 @@ body {
   background-image: url(../images/back.jpg);
   background-size: 100% 100%;
 }
+
+
 .name-holder {
   position: absolute;
   top: 172px;
@@ -10,6 +12,24 @@ body {
   color: white;
   font-family: Electrolize;
   font-size: 100px;
+  z-index: 100;
+}
+
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: #73726A;
+    background-size: 100% 400px;
+    background-repeat: no-repeat;
+    font-size: 30px;
+    color: white;
+  }
+
+  .name-holder {
+    top: 70px;
+    left: 40px;
+    font-size: 200px;
+  }
 }
 
 .main {
@@ -22,6 +42,7 @@ body {
   position: absolute;
   top: 320px;
   left: 185px;
+  z-index: 100;
 }
 
 .options {
@@ -47,4 +68,13 @@ body {
   width: 145px;
   font-size: 20px;
   opacity: 1;
+}
+
+.text-window {
+  padding-top: 150px;
+  color: white;
+}
+
+.about {
+  padding-top: 335px;
 }

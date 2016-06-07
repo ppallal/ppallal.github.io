@@ -4,7 +4,9 @@ state = {}
 var init = function () {
   jvars.nameHolder = $(".name-holder")
   jvars.optionsHolder = $(".options-holder")
+  jvars.about = $(".about")
   jvars.optionsHolder.hide()
+  jvars.about.hide()
 }
 
 var populateName = function(i) {
@@ -13,6 +15,7 @@ var populateName = function(i) {
   if (i<8) setTimeout(function(){ populateName(i+1) }, 100)
   else {
     jvars.optionsHolder.delay(400).fadeIn("fast")
+    jvars.about.delay(800).fadeIn("fast")
   }
 }
 
@@ -20,6 +23,7 @@ var compress = function() {
   jvars.nameHolder.delay(200).animate({top: "10px", 'font-size': "42px", left: "10px"}, "fast")
   jvars.optionsHolder.children("div").animate({'font-size': "0px", height: "25px", width: "25px", padding:"0px"}, "fast")
   jvars.optionsHolder.delay(200).animate({top: "60px", left: "10px"}, "fast");
+  jvars.about.fadeOut(100);
   state.compressed = true;
 }
 
@@ -27,8 +31,8 @@ var deCompress = function() {
   jvars.nameHolder.animate({top: "172px", 'font-size': "100px", left: "215px"}, "fast")
   jvars.optionsHolder.children("div").animate({'font-size': "16px", height: "100px", width: "110px", padding:"40px 10px"}, "fast")
   jvars.optionsHolder.animate({top: "320px", left: "185px"}, "fast");
+//  jvars.about.delay(250).fadeIn("fast")
   state.compressed = false;
-  console.log("zzz")
 }
 
 var toggleCompression = function () {
