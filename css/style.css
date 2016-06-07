@@ -86,3 +86,11 @@ body {
 .about {
   padding-top: 335px;
 }
+
+@media screen and (min-width: 1900px) {
+  .about{
+    margin-left: -100px;
+    margin-right: 300px;
+
+  }
+}
