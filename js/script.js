@@ -5,6 +5,9 @@ var init = function () {
   jvars.nameHolder = $(".name-holder")
   jvars.optionsHolder = $(".options-holder")
   jvars.about = $(".about")
+  jvars.optionsPanels = {
+    "experience": $('#option-experience')
+  }
   jvars.optionsHolder.hide()
   jvars.about.hide()
 }
@@ -20,9 +23,9 @@ var populateName = function(i) {
 }
 
 var compress = function() {
-  jvars.nameHolder.delay(200).animate({top: "10px", 'font-size': "42px", left: "10px"}, "fast")
+  jvars.nameHolder.delay(200).animate({top: "10px", 'font-size': "52px", left: "10px"}, "fast")
   jvars.optionsHolder.children("div").animate({'font-size': "0px", height: "25px", width: "25px", padding:"0px"}, "fast")
-  jvars.optionsHolder.delay(200).animate({top: "60px", left: "10px"}, "fast");
+  jvars.optionsHolder.delay(200).animate({top: "72px", left: "10px"}, "fast");
   jvars.about.fadeOut(100);
   state.compressed = true;
 }
@@ -40,11 +43,15 @@ var toggleCompression = function () {
   else deCompress()
 }
 
+var optionClicked = function() {
+  toggleCompression()
+  jvars.optionsPanels.experience.css("display", "none").removeClass("hidden-lg").delay(400).slideDown("fast")
+}
 
 $('body').ready(function(){
   init()
   populateName(0)
-  jvars.optionsHolder.children("div").click(toggleCompression)
+  jvars.optionsHolder.children("div").click(optionClicked)
   jvars.nameHolder.click(function() {if (state.compressed) toggleCompression()})
 
 })

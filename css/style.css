@@ -81,6 +81,7 @@ body {
 .text-window {
   padding-top: 150px;
   color: white;
+  font-family: lato;
 }
 
 .about {
@@ -92,5 +93,43 @@ body {
     margin-left: -100px;
     margin-right: 300px;
 
+  }
+}
+
+.back-panel {
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 20px;
+  color: black;
+
+}
+
+.company-logo {
+  height: 40px;
+}
+
+.heading-option {
+  margin-bottom: 50px;
+}
+
+.designation {
+  font-style: italic;
+  color: #555555;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.content-block {
+  margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1800px) {
+  .back-panel {
+    height: 780px;
+  }
+}
+
+@media screen and (max-width: 1370px) and (min-width:1000px) {
+  .back-panel {
+    height: 590px;
   }
 }
