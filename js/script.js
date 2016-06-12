@@ -4,6 +4,20 @@ state = {}
 var init = function () {
   jvars.nameHolder = $(".name-holder")
   jvars.optionsHolder = $(".options-holder")
+  jvars.optionsTabs = {}
+  jvars.optionWindow = {}
+
+  jvars.optionsTabs["experience"] =  $("#option-experience-opener")
+  jvars.optionsTabs["projects"] =  $("#option-projects-opener")
+  jvars.optionsTabs["research"] =  $("#option-research-opener")
+  jvars.optionsTabs["education"] =  $("#option-education-opener")
+  jvars.optionsTabs["extra"] =  $("#option-extra-opener")
+  jvars.optionWindow["experience"] =  $("#option-experience")
+  jvars.optionWindow["projects"] =  $("#option-projects")
+  jvars.optionWindow["research"] =  $("#option-research")
+  jvars.optionWindow["education"] =  $("#option-education")
+  jvars.optionWindow["extra"] =  $("#option-extra")
+
   jvars.about = $(".about")
   jvars.optionsPanels = {
     "experience": $('#option-experience')
@@ -31,27 +45,44 @@ var compress = function() {
 }
 
 var deCompress = function() {
+  jvars.optionWindow[state.currentView].slideUp("fast", function () {
   jvars.nameHolder.animate({top: "172px", 'font-size': "100px", left: "215px"}, "fast")
   jvars.optionsHolder.children("div").animate({'font-size': "16px", height: "100px", width: "110px", padding:"40px 10px"}, "fast")
   jvars.optionsHolder.animate({top: "320px", left: "185px"}, "fast");
 //  jvars.about.delay(250).fadeIn("fast")
   state.compressed = false;
+  });
 }
 
 var toggleCompression = function () {
-  if (!state.compressed) compress()
-  else deCompress()
+  if (!state.compressed) {
+    compress()
+    return true
+  } else {
+    deCompress()
+    return false
+  }
 }
 
-var optionClicked = function() {
-  toggleCompression()
-  jvars.optionsPanels.experience.css("display", "none").removeClass("hidden-lg").delay(400).slideDown("fast")
+var optionClicked = function(toOpen) {
+  var toDo = toggleCompression()
+  if (toDo) {
+    jvars.optionWindow[toOpen].css("display", "none").removeClass("hidden-lg").delay(400).slideDown("fast")
+    state.currentView = toOpen
+  }
 }
 
 $('body').ready(function(){
   init()
   populateName(0)
-  jvars.optionsHolder.children("div").click(optionClicked)
+
+  jvars.optionsTabs.experience.click(function(){ optionClicked("experience") })
+  jvars.optionsTabs.projects.click(function(){ optionClicked("projects") })
+  jvars.optionsTabs.research.click(function(){ optionClicked("research") })
+  jvars.optionsTabs.education.click(function(){ optionClicked("education") })
+  jvars.optionsTabs.extra.click(function(){ optionClicked("extra") })
   jvars.nameHolder.click(function() {if (state.compressed) toggleCompression()})
+
+  console.log(jvars.optionWindow)
 
 })
