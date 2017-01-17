@@ -71,6 +71,25 @@
   margin-top: 50px;
 }
 
+@media only screen and (max-width: 1367px) {
+  .landing .dp {
+    margin-top: 50px;
+  }
+  .dp-big {
+    height: 340px;
+    width: 340px;
+  }
+
+  .landing .note {
+    margin-top: 30px;
+  }
+
+  .landing .menus {
+    margin: 35px;
+  }
+}
+
+
 .polygon {
   padding: 25px 35px;
   background-color: #4f8173;
@@ -183,6 +202,10 @@
 }
 */
 
+.pointer {
+  cursor: pointer;
+}
+
 .right-pane .note{
   margin: 20px 15px;
   margin-top: 60px;
@@ -200,4 +223,17 @@
   margin-right: 10px;
   color: #638686;
   text-shadow: none;
+}
+
+
+.note a {
+  color: #7ac1c1;
+}
+
+@media only screen and (max-width: 1367px) {
+  .right-pane >div {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow: auto;
+  }
 }

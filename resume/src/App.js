@@ -123,7 +123,7 @@ class Content extends Component {
     return (
       <div>
         <div className = "left-pane">
-          <div onClick = {() => this.props.move(["Landing"])}>
+          <div className="pointer" onClick = {() => this.props.move(["Landing"])}>
             <DP size="med"/>
             <Polygon size="small" title="Prafulla Pallal"/>
           </div>
@@ -134,7 +134,9 @@ class Content extends Component {
            if (k === arr.length-1) return <Polygon title={i}/>;
            else if (k>=1) {return <Polygon link={arr.slice(0, k+1)} clickable={true} move={st.move} size="small" title={i}/>;}
           })}
+          <div>
           <div className="note" dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.data.info, "Maruku")}}>
+          </div>
              
           </div>
           <div className="links">
