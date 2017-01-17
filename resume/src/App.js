@@ -153,9 +153,9 @@ class App extends Component {
     super(props)
     
     this.state = {
-//      page: ["Landing"]
+      page: ["Landing"]
 //      page: ["Content", "Education", "B.E."]
-      page: ["Content", "Personal"]
+//      page: ["Content", "Personal"]
     }
     console.log(data);
     this.updateState = this.updateState.bind(this);
