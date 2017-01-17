@@ -134,7 +134,7 @@ class Content extends Component {
            if (k === arr.length-1) return <Polygon title={i}/>;
            else if (k>=1) {return <Polygon link={arr.slice(0, k+1)} clickable={true} move={st.move} size="small" title={i}/>;}
           })}
-          <div className="note" dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.data.info)}}>
+          <div className="note" dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.data.info, "Maruku")}}>
              
           </div>
           <div className="links">
@@ -153,7 +153,9 @@ class App extends Component {
     super(props)
     
     this.state = {
-      page: ["Landing"]
+//      page: ["Landing"]
+//      page: ["Content", "Education", "B.E."]
+      page: ["Content", "Personal"]
     }
     console.log(data);
     this.updateState = this.updateState.bind(this);

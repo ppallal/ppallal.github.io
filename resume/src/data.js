@@ -1,3 +1,10 @@
+var educationSummary = atob(require('./content/education-summary.txt').split("base64,")[1])
+var educationBeSummary = atob(require('./content/education-be-summary.txt').split("base64,")[1])
+var workAmagi = atob(require('./content/work-amagi.txt').split("base64,")[1])
+var work = atob(require('./content/work.txt').split("base64,")[1])
+var personal = atob(require('./content/personal.txt').split("base64,")[1])
+
+
 var data;
 data = {
   "Landing": {
@@ -8,24 +15,27 @@ data = {
       "Education": {
         "children": {
           "B.E.": {
-            custom: "B.E. Summary"
-          },
-          "10+2": {
-            info: "BS" 
+            info: educationBeSummary
           }
-          
         },
         "children_order": [
           "B.E.",
-          "10+2",
-          "10"
         ],
-        "custom": "Education Summary"
+        "info": educationSummary
+      },
+      "Personal": {
+        "children": {
+
+        },
+        "children_order": [
+
+        ],
+        "info": personal
       },
       "Work": {
         "children": {
           "Amagi Media Labs Pvt Ltd" : {
-            "info": "I have worked at Amagi Media Labs since July 2015 as a Software Development Engineer"
+            "info": workAmagi
           }
         },
         "children_order": [
@@ -35,14 +45,10 @@ data = {
           "RecAI Corp",
           "Other Projects",
         ],
-        "info": "## Professional Career \
-                \n\nAfter Graduation in 2015 I have been working with Amagi Media Labs doing some stunning research and building awesome products. Prior to this, I hava worked in Commvault Systems and CCBD-EMC as an intern.\
-                \
-                \n\n## Enterpresseurship Career \
-                \n\nI have co-founded RecAI Corp. The company makes productivity apps and games, along with game playing Artificial Intelligence. \
-                \
-                \n\n## Other Work\
-                \n\nI have done a lot of academic projects too during the course of my college. Some of the details about all of these can be found in this secion."
+        "info": work
+      },
+      "Research": {
+        info: "TBD"
       }
     },
     "children_order": [
