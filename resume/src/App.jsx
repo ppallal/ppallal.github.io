@@ -79,7 +79,7 @@ class Landing extends Component {
         <div className="dp">
           <DP size="big"/>
         </div>
-        <div className="note">Might get my self a Unicorn in the Next 3 Years!</div>
+        <TypingAnimation htmlContent="Might get my self a Unicorn in the Next 3 Years!" typingSpeed={100}/>
         <div className="menus">
           <div>
             <Polygon title = "Education" clickable={true} link={["Content", "Education"]} move={this.props.move} size="small"/>
@@ -133,9 +133,7 @@ class Content extends Component {
            else if (k>=1) {return <Polygon link={arr.slice(0, k+1)} clickable={true} move={st.move} size="small" title={i}/>;}
           })}
           <div>
-          <div className="note" dangerouslySetInnerHTML={{__html: markdown.toHTML(this.state.data.info, "Maruku")}}>
-          </div>
-             
+          <TypingAnimation htmlContent={markdown.toHTML(this.state.data.info, "Maruku")} />
           </div>
           <div className="links">
             {this.state.data.children_order.map(function(i, k, arr){
@@ -146,6 +144,84 @@ class Content extends Component {
       </div>
     )
   }
+}
+
+class TypingAnimation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayText: '',
+      currentIndex: 0,
+      isTyping: true,
+      showFormatted: false
+    };
+    this.words = [];
+    this.typingSpeed = props.typingSpeed || 10; // milliseconds per word, default 10
+  }
+
+  componentDidMount() {
+    this.processContent();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.htmlContent !== this.props.htmlContent) {
+      this.processContent();
+    }
+  }
+
+  processContent() {
+    // Extract text content from HTML and split into words
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = this.props.htmlContent;
+    const textContent = tempDiv.textContent || tempDiv.innerText || '';
+    this.words = textContent.split(/\s+/).filter(word => word.length > 0);
+    this.setState({ displayText: '', currentIndex: 0, isTyping: true, showFormatted: false }, () => {
+      this.startTyping();
+    });
+  }
+
+  startTyping() {
+    if (this.words.length === 0) return;
+    
+    const typeNextWord = () => {
+      if (this.state.currentIndex < this.words.length) {
+        this.setState(prevState => ({
+          displayText: prevState.displayText + (prevState.displayText ? ' ' : '') + this.words[prevState.currentIndex],
+          currentIndex: prevState.currentIndex + 1
+        }), () => {
+          setTimeout(typeNextWord, this.typingSpeed);
+        });
+      } else {
+        this.setState({ isTyping: false }, () => {
+          // After typing is complete, show formatted content
+          setTimeout(() => {
+            this.setState({ showFormatted: true });
+          }, 500); // Wait 500ms after typing completes
+        });
+      }
+    };
+    
+    typeNextWord();
+  }
+
+  render() {
+    return (
+      <div className="note typing-container">
+        <div 
+          className={`formatted-content ${this.state.showFormatted ? 'show' : ''}`} 
+          dangerouslySetInnerHTML={{__html: this.props.htmlContent}} 
+        />
+        <div className={`typing-overlay ${this.state.showFormatted ? 'fade-out' : ''}`}>
+          <span>{this.state.displayText}</span>
+          {this.state.isTyping && <span className="typing-cursor">|</span>}
+        </div>
+      </div>
+    );
+  }
+}
+
+TypingAnimation.defaultProps = {
+  typingSpeed: 10
 }
 
 class App extends Component {

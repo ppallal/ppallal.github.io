@@ -237,3 +237,48 @@
     overflow: auto;
   }
 }
+
+/* Typing cursor animation */
+.typing-cursor {
+  animation: blink 1s infinite;
+  color: #c3ac6e;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Typing animation container */
+.typing-container {
+  position: relative;
+}
+
+.formatted-content {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.formatted-content.show {
+  opacity: 1;
+}
+
+.typing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #638686;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.typing-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
