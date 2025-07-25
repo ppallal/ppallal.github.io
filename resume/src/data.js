@@ -4,6 +4,8 @@ import workCommvaultText from './content/work-commvault.md?raw'
 import workccbdText from './content/work-ccbd.md?raw'
 import workrecaiText from './content/work-recai.md?raw'
 import workprojectsText from './content/work-projects.md?raw'
+import workGoogleText from './content/work-google.md?raw'
+import workStartupText from './content/work-startup.md?raw'
 import workText from './content/work.md?raw'
 import personalText from './content/personal.md?raw'
 import researchAmagiText from './content/research-amagi.md?raw'
@@ -17,6 +19,8 @@ var workCommvault = workCommvaultText
 var workccbd = workccbdText
 var workrecai = workrecaiText
 var workprojects = workprojectsText
+var workGoogle = workGoogleText
+var workStartup = workStartupText
 var work = workText
 var personal = personalText
 var researchAmagi = researchAmagiText
@@ -37,6 +41,12 @@ data = {
       },
       "Work": {
         "children": {
+          "Google" : {
+            "info": workGoogle
+          },
+          "Stealth Startup" : {
+            "info": workStartup
+          },
           "Amagi Media Labs Pvt Ltd" : {
             "info": workAmagi
           },
@@ -65,6 +75,8 @@ data = {
           },
         },
         "children_order": [
+          "Stealth Startup",
+          "Google",
           "Amagi Media Labs Pvt Ltd",
           "Others",
         ],
