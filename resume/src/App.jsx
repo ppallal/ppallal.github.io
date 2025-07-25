@@ -79,13 +79,11 @@ class Landing extends Component {
         <div className="dp">
           <DP size="big"/>
         </div>
-        <div className="note">I am the future Elon Musk and Albert Einstein Combined.</div>
+        <div className="note">Might get my self a Unicorn in the Next 3 Years!</div>
         <div className="menus">
           <div>
             <Polygon title = "Education" clickable={true} link={["Content", "Education"]} move={this.props.move} size="small"/>
-            <Polygon title = "Personal" clickable={true} link={["Content", "Personal"]} move={this.props.move} size="small"/>
             <Polygon title = "Prafulla Pallal"/>
-            <Polygon title = "Research" clickable={true} link={["Content", "Research"]} move={this.props.move} size="small"/>
             <Polygon title = "Work" clickable={true} link={["Content", "Work"]} move={this.props.move} size="small"/>
           </div>
         </div>
