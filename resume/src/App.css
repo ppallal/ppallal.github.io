@@ -6,7 +6,27 @@
 .dp-holder {
   margin: 0 auto;
   position: relative;
-  box-shadow: 0px 0px 7px rgba(47,80,73, .8)
+  box-shadow: 0px 0px 7px rgba(47,80,73, .8);
+  animation: dpEntrance .3s ease-out;
+}
+
+@keyframes dpEntrance {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.99);
+    opacity: 0.9;
+  }
+  100% {
+    transform:  scale(1);
+    opacity: 1;
+  }
 }
 
 .dp-holder div{
