@@ -3,7 +3,7 @@ import './App.css';
 import urlDP from './images/DP_V1.jpg' 
 import utils from './utils.js'
 import data from './data.js'
-var markdown = require( "markdown" ).markdown;
+import { markdown } from 'markdown';
 
 class DP extends Component {
   constructor(props) {

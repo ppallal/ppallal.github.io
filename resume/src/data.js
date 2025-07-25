@@ -1,16 +1,30 @@
-var educationSummary = atob(require('./content/education-summary.txt').split("base64,")[1])
-var educationBeSummary = atob(require('./content/education-be-summary.txt').split("base64,")[1])
-var workAmagi = atob(require('./content/work-amagi.txt').split("base64,")[1])
-var workCommvault = atob(require('./content/work-commvault.txt').split("base64,")[1])
-var workccbd = atob(require('./content/work-ccbd.txt').split("base64,")[1])
-var workrecai = atob(require('./content/work-recai.txt').split("base64,")[1])
-var workprojects = atob(require('./content/work-projects.txt').split("base64,")[1])
-var work = atob(require('./content/work.txt').split("base64,")[1])
-var personal = atob(require('./content/personal.txt').split("base64,")[1])
-var researchAmagi = atob(require('./content/research-amagi.txt').split("base64,")[1])
-var researchccbd = atob(require('./content/research-ccbd.txt').split("base64,")[1])
-var researchpesit = atob(require('./content/research-pesit.txt').split("base64,")[1])
-var research = atob(require('./content/research.txt').split("base64,")[1])
+import educationSummaryText from './content/education-summary.txt?raw'
+import educationBeSummaryText from './content/education-be-summary.txt?raw'
+import workAmagiText from './content/work-amagi.txt?raw'
+import workCommvaultText from './content/work-commvault.txt?raw'
+import workccbdText from './content/work-ccbd.txt?raw'
+import workrecaiText from './content/work-recai.txt?raw'
+import workprojectsText from './content/work-projects.txt?raw'
+import workText from './content/work.txt?raw'
+import personalText from './content/personal.txt?raw'
+import researchAmagiText from './content/research-amagi.txt?raw'
+import researchccbdText from './content/research-ccbd.txt?raw'
+import researchpesitText from './content/research-pesit.txt?raw'
+import researchText from './content/research.txt?raw'
+
+var educationSummary = educationSummaryText
+var educationBeSummary = educationBeSummaryText
+var workAmagi = workAmagiText
+var workCommvault = workCommvaultText
+var workccbd = workccbdText
+var workrecai = workrecaiText
+var workprojects = workprojectsText
+var work = workText
+var personal = personalText
+var researchAmagi = researchAmagiText
+var researchccbd = researchccbdText
+var researchpesit = researchpesitText
+var research = researchText
 
 
 var data;
